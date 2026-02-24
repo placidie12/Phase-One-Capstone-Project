@@ -23,10 +23,12 @@ public class Student extends Person {
     }
 
     public int getStudentID() {
+
         return StudentID;
     }
 
     public Map<Course, Double> getCourses() {
+
         return Courses;
     }
     public void setDepartment(String department) {
@@ -53,26 +55,36 @@ public class Student extends Person {
 
 
     public double calculateTuition() {
-         return 0.0;
+
+        return 0.0;
      }
 
      public void EnrollCourse(Course course,double grade){
-         getCourses().put(course,grade);
+
+        getCourses().put(course,grade);
      }
 
     public double calculateGPA() {
-        if (getCourses().isEmpty()) return 0.0;
+        if (getCourses().isEmpty())
+            return 0.0;
 
-        double totalPoints = 0.0;
+        double totalGradePoints = 0.0;
 
         for (double grade : getCourses().values()) {
-            double gpa = (grade / 100) * 4.0;
-            if (gpa > 4.0) gpa = 4.0;
-            totalPoints += gpa;
+
+            double gpaValue;
+            if (grade >= 90) gpaValue = 4.0;
+            else if (grade >= 80) gpaValue = 3.0;
+            else if (grade >= 70) gpaValue = 2.0;
+            else if (grade >= 60) gpaValue = 1.0;
+            else gpaValue = 0.0;
+
+            totalGradePoints += gpaValue;
         }
 
-        return totalPoints / getCourses().size();
+        return totalGradePoints / getCourses().size();
     }
+
 
     @Override
     public void displayInfo() {

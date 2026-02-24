@@ -8,6 +8,7 @@ public class Instructor extends Person {
 private double Salary;
 private String ID;
 private List<Course> CoursesTeaching;
+
     public Instructor(String FullNames, String Email, String Department, String ID, double Salary) {
         super(FullNames, Email, Department);
         this.ID= ID;
@@ -20,16 +21,20 @@ private List<Course> CoursesTeaching;
     }
 
     public double getSalary() {
+
         return Salary;
     }
     public List<Course>getCoursesTeaching(){
+
         return CoursesTeaching;
     }
 
     public void setSalary(double salary) {
+
         Salary = salary;
     }
     public void assignCourse(Course course){
+
         CoursesTeaching.add(course);
     }
 
