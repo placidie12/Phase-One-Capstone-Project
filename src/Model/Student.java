@@ -93,4 +93,8 @@ public class Student extends Person {
                 ", Department: " + getDepartment() +
                 ", GPA: " + calculateGPA());
     }
- }
+
+    public  double getGpa() {
+        return GPA;
+    }
+}

@@ -35,5 +35,9 @@ public class Course {
         return name; }
     public int getCredits() {
         return credits; }
+
+    public boolean isFull() {
+        return false;
+    }
 }
 
