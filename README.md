@@ -34,13 +34,18 @@ A comprehensive Java application demonstrating OOP principles, Collections, Exce
 - **FileManager** with:
   - `saveStudents()` / `loadStudents()`
   - `saveCourses()` / `loadCourses()`
-- **ConsoleApp** - Menu-driven interface:
+  - `saveInstructors()` / `loadInstructors()`
+- **Main.java** - Menu-driven interface:
   1. Register Student
   2. Create Course
   3. Enroll in Course
   4. View Student Record
   5. Generate Dean's List
-  6. Save and Exit
+  6. Register Instructor
+  7. Assign Instructor to Course
+  8. Calculate Student Tuition
+  9. View All Instructors
+  10. Save and Exit
 
 ## Project Structure
 ```
@@ -59,23 +64,21 @@ src/
 │   └── UniversityManager.java
 ├── Util/
 │   └── FileManager.java
-├── Main.java (demo/testing)
-└── ConsoleApp.java (interactive menu)
+└── Main.java (interactive menu)
 ```
 
 ## How to Run
 
-### Option 1: Demo Mode (Main.java)
 ```bash
 javac src/**/*.java
 java -cp src Main
 ```
 
-### Option 2: Interactive Console (ConsoleApp.java)
-```bash
-javac src/**/*.java
-java -cp src ConsoleApp
-```
+## Usage Notes
+- Enter numeric values only for Student ID, GPA, Credits, and Salary
+- GPA must be between 0.0 and 4.0
+- Don't use symbols like $ when entering salary
+- Data persists in `students.txt`, `courses.txt`, and `instructors.txt`
 
 ## Key Concepts Demonstrated
 
