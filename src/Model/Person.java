@@ -13,26 +13,32 @@ abstract class Person {
     }
 
     public String getFullNames() {
+
         return FullNames;
     }
 
     public String getEmail() {
+
         return Email;
     }
 
     public String getDepartment() {
+
         return Department;
     }
 
     public void setFullNames(String fullNames) {
+
         FullNames = fullNames;
     }
 
     public void setEmail(String email) {
+
         Email = email;
     }
 
     public void setDepartment(String department) {
+
         Department = department;
     }
 

@@ -9,23 +9,29 @@ import java.util.List;
 public class UniversityManager {
 
     private List<Student> students;
-    private List<Instructor> instructors;
+    private List<Instructor> Instructors;
     private List<Course> courses;
 
 
     public UniversityManager() {
         this.students = new ArrayList<>();
-        this.instructors = new ArrayList<>();
+        this.Instructors = new ArrayList<>();
         this.courses = new ArrayList<>();
     }
 
 
     public void setStudents(List<Student> students) {
+
         this.students = students;
     }
 
     public void setCourses(List<Course> courses) {
+
         this.courses = courses;
+    }
+
+    public void setInstructors(List<Instructor> instructors) {
+        this.Instructors = instructors;
     }
 
     public void registerStudent(Student student) {
@@ -41,12 +47,12 @@ public class UniversityManager {
 
     public void registerInstructor(Instructor instructor) {
 
-        instructors.add(instructor);
+        Instructors.add(instructor);
     }
 
     public List<Instructor> getInstructors() {
 
-        return instructors;
+        return Instructors;
     }
 
 

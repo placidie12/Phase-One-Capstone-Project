@@ -71,4 +71,36 @@ public class FileManager {
         reader.close();
         return courses;
     }
+
+    public static void saveInstructors(String filename, Iterable<Instructor> instructors) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+        for (Instructor i : instructors) {
+            writer.write(i.getID() + "," + i.getFullNames() + "," + i.getEmail() + "," + 
+                        i.getDepartment() + "," + i.getSalary());
+            writer.newLine();
+        }
+        writer.close();
+    }
+
+    public static List<Instructor> loadInstructors(String filename) throws IOException {
+        List<Instructor> instructors = new ArrayList<>();
+        File file = new File(filename);
+        if (!file.exists()) return instructors;
+
+        BufferedReader reader = new BufferedReader(new FileReader(filename));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] parts = line.split(",");
+            if (parts.length == 5) {
+                String id = parts[0];
+                String name = parts[1];
+                String email = parts[2];
+                String dept = parts[3];
+                double salary = Double.parseDouble(parts[4]);
+                instructors.add(new Instructor(name, email, dept, id, salary));
+            }
+        }
+        reader.close();
+        return instructors;
+    }
 }

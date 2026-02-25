@@ -11,7 +11,6 @@ public class Student extends Person {
     public Student(String FullNames, String Email, String Department, double GPA, int StudentID) {
         super(FullNames, Email, Department);
         this.Department = Department;
-         setGPA(GPA);
         this.StudentID = StudentID;
         this.Courses = new HashMap<>();
     }
@@ -95,6 +94,7 @@ public class Student extends Person {
     }
 
     public  double getGpa() {
+
         return GPA;
     }
 }

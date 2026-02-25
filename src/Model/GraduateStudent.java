@@ -1,7 +1,7 @@
 package Model;
 
 public class GraduateStudent extends Student {
-    private int CreditRate= 300;
+    private int CreditRate= 3000;
     private double ResearchFee= 100000;
 
     public GraduateStudent(String FullNames, String Email, String Department,
