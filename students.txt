@@ -1,0 +1,2 @@
+UNDERGRADUATE,2220,kamana,kama@gmmail.com,IT,3.8
+UNDERGRADUATE,222011708,Alice Pelly,alice@gmail.com,IT,3.2

@@ -3,7 +3,6 @@ package Service;
 import Model.*;
 import Exception.CourseFullException;
 import Exception.StudentAlreadyEnrolledException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,7 @@ public class UniversityManager {
     private List<Instructor> instructors;
     private List<Course> courses;
 
-    // Constructor
+
     public UniversityManager() {
         this.students = new ArrayList<>();
         this.instructors = new ArrayList<>();
@@ -21,29 +20,43 @@ public class UniversityManager {
     }
 
 
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
+
     public void registerStudent(Student student) {
+
         students.add(student);
     }
 
     public List<Student> getStudents() {
+
         return students;
     }
 
 
     public void registerInstructor(Instructor instructor) {
+
         instructors.add(instructor);
     }
 
     public List<Instructor> getInstructors() {
+
         return instructors;
     }
 
 
     public void createCourse(Course course) {
+
         courses.add(course);
     }
 
     public List<Course> getCourses() {
+
         return courses;
     }
 
@@ -51,31 +64,22 @@ public class UniversityManager {
     public void enrollStudentInCourse(Student student, Course course, double grade)
             throws CourseFullException, StudentAlreadyEnrolledException {
 
-
         if (course.isFull()) {
             throw new CourseFullException("Course " + course.getName() + " is full");
         }
-
-
         if (course.getEnrolledStudents().contains(student)) {
             throw new StudentAlreadyEnrolledException(
                     student.getFullNames() + " already enrolled in " + course.getName());
         }
-
-
         course.addStudent(student);
-        student.EnrollCourse(course, grade); // Add course and grade to student
+        student.EnrollCourse(course, grade);
     }
-
-
     public void assignInstructorToCourse(Instructor instructor, Course course) {
         if (!instructor.getCoursesTeaching().contains(course)) {
             instructor.assignCourse(course);
             course.assignInstructor(instructor);
         }
     }
-
-
     public void displayAllStudents() {
         for (Student student : students) {
             student.displayInfo();
@@ -121,5 +125,17 @@ public class UniversityManager {
         return students.stream()
                 .max((s1, s2) -> Double.compare(s1.getGpa(), s2.getGpa()))
                 .orElse(null);
+    }
+    public void generateDeansList() {
+        System.out.println("= Dean's List =");
+
+        boolean found = students.stream()
+                .filter(s -> s.getGpa() > 3.5)
+                .peek(s -> System.out.println(s.getFullNames() + " | GPA: " + s.getGpa()))
+                .count() > 0;
+
+        if (!found) {
+            System.out.println("No students qualified for Dean's List.");
+        }
     }
 }
